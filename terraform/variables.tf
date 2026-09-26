@@ -24,3 +24,8 @@ variable "template_id" {
   description = "VM ID du template Debian utilisé pour le clonage"
   type        = number
 }
+
+variable "vlan_id" {
+  type        = number
+  description = "Vlan de la VM"
+}
