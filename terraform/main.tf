@@ -22,7 +22,7 @@ resource "proxmox_virtual_environment_vm" "lab_vm" {
 
     initialization {
         user_account {
-            username = ansible
+            username = "ansible"
 
             keys = [
                 trimspace(file("/home/pi4/.ssh/id_ed25519_ansible.pub"))
