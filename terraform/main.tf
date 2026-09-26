@@ -20,6 +20,22 @@ resource "proxmox_virtual_environment_vm" "lab_vm" {
         vlan_id = var.vlan_id
     }
 
+    initialization {
+        user_account {
+            username = ansible
+
+            keys = [
+                trimspace(file("/home/pi4/.ssh/id_ed25519_ansible.pub"))
+            ]
+        }
+    }
+
+    ip_config {
+        ipv4 {
+            address ="dhcp"
+        }
+    }
+
 }
 
 
