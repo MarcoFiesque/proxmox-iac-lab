@@ -28,11 +28,11 @@ resource "proxmox_virtual_environment_vm" "lab_vm" {
                 trimspace(file("/home/pi4/.ssh/id_ed25519_ansible.pub"))
             ]
         }
-    }
 
-    ip_config {
-        ipv4 {
-            address ="dhcp"
+        ip_config {
+            ipv4 {
+                address ="dhcp"
+            }
         }
     }
 
