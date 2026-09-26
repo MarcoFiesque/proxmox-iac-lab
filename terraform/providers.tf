@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "proxmox"{
-    endpoint = var.proxmox_host
+    endpoint = "https://${var.proxmox_host}:8006"
     api_token = var.api_token
     insecure = true
 }
