@@ -19,5 +19,5 @@
     - name: Démarrer et activer nginx
       ansible.builtin.service:
         name: nginx
-        state: present
+        state: started
         enabled: true
