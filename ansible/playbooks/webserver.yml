@@ -21,3 +21,17 @@
         name: nginx
         state: started
         enabled: true
+
+    - name: Déployer la page d'accueil
+      ansible.builtin.copy:
+        content: |
+          <html>
+            <body>
+              <h1>{{ inventory_hostname }}</h1>
+              <p>Serveur configuré avec Ansible.</p>
+            </body>
+          </html>
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+        mode: "0644"
