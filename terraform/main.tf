@@ -1,3 +1,14 @@
+locals {
+  cloud_init = templatefile(
+    "${path.module}/cloud-init.yaml.tftpl",
+    {
+      ssh_public_key = trimspace(
+        file("/home/pi4/.ssh/id_ed25519_ansible.pub")
+      )
+    }
+  )
+}
+
 resource "proxmox_virtual_environment_vm" "lab_vm" {
     name = "lab-01"
     node_name = var.proxmox_node
@@ -31,13 +42,10 @@ resource "proxmox_virtual_environment_vm" "lab_vm" {
 
         ip_config {
             ipv4 {
-                address ="dhcp"
+                address = "10.99.99.200/24"
+                gateway = "10.99.99.1"
             }
         }
     }
-
+    
 }
-
-
-
-
